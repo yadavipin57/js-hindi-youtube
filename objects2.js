@@ -65,3 +65,24 @@ console.log(Object.entries(twitterUser));
 console.log(twitterUser.hasOwnProperty('isLoggedIn')); // true
 console.log(twitterUser.hasOwnProperty('isLogged')); // false
 
+
+// Object de-structure
+
+const course = {
+    coursename: "js in hindi",
+    price: "999",
+    courseInstructor: "hitesh"
+}
+
+const {courseInstructor: instructor} = course // This is one of the way to access the keys and values of the object another method is using course.courseInstructor. All in the curly braes of this line "instructor" name is used for courseInstructor, because it was big name
+
+// console.log(courseInstructor); // This line as same as line below but now it will show error because in line 77 its name is changed to "instructor"
+console.log(instructor);
+
+// In JSON keys as well as its values both are a string
+// {
+//     coursename: "js in hindi",
+//     price: "999",
+//     courseInstructor: "hitesh"
+// }
+
