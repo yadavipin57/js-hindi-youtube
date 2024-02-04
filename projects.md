@@ -1,7 +1,6 @@
 #My projects code
 
 ## Project 1 - Color Changer
-
 ```html
     <!DOCTYPE html>
 <html lang="en">
@@ -92,7 +91,7 @@ buttons.forEach(function (button) {
 
 ```css
     html {
-    margin: 0;
+      margin: 0;
   }
   
   span {
@@ -326,5 +325,74 @@ h1 {
   border-radius: 4px;
   cursor: pointer;
 }
+
+```
+
+## Project 6 - Infinite Color
+
+``` html
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <nav>
+      <a href="/" aria-current="page">Home</a>
+      <a target="_blank" href="https://www.youtube.com/@chaiaurcode"
+        >Youtube channel</a
+      >
+    </nav>
+
+    <h1>Start should change the Background color every second</h1>
+    <button id="start" style="cursor: pointer">Start</button>
+    <button id="stop" style="cursor: pointer">Stop</button>
+    <script src="chaiaurcode.js"></script>
+  </body>
+</html>
+
+```
+
+``` javascript
+  // Generating random colors
+
+const randomColor = function () {
+  const hex = '0123456789ABCDEF';
+
+  let color = '#';
+
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+let intervalId;
+
+const startChangingColor = function () {
+  if (!intervalId) {
+    // After writting intervalId = null in stopChangingColor we have to put the if condition so that the intervalId dont have null value when starting again
+    intervalId = setInterval(changeBgColor, 1000);
+  }
+
+  function changeBgColor() {
+    document.body.style.backgroundColor = randomColor();
+  }
+};
+const stopChangingColor = function () {
+  clearInterval(intervalId);
+  intervalId = null; // Here after stopping the intervalId value will be cleared and dereferenced
+};
+
+document.querySelector('#start').addEventListener('click', startChangingColor);
+
+document.querySelector('#stop').addEventListener('click', stopChangingColor);
+
+// Video 38, Time stamp 00:32:00
 
 ```
