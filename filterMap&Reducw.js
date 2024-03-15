@@ -1,5 +1,17 @@
 const myNumbers = [1,2,3,4,5,6,7,8,9,10]
 
+// forEach can be stored in a varialbe
+const values = myNumbers.forEach((item)=>{
+    console.log(item);
+    // forEach never returns any values
+})
+console.log(values) // undefined
+
+// filter
+let newNums = myNums.filter((num) => num>4) // implicit return format
+console.log(newNums) // 5,6,7,8,9,10
+
+
 let newNums = myNumbers.map( (num) => num+10 )
 console.log(newNums);
 
@@ -44,3 +56,5 @@ const shoppingCart = [
 const priceToPay = shoppingCart.reduce( (acc, item) => acc+ item.price, 0 )
 
 console.log(priceToPay);
+
+// map and filter also supports chaining 
